@@ -2,5 +2,28 @@
 <parameters>
 
 	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
-
+	<parameter name="worldHeight" displayName="World Height" type="int" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		<parameter name="worldWidth" displayName="World Width" type="int" 
+						defaultValue="50" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		<parameter name="minInitialEnergy" displayName="Min Initial Energy" type="int" 
+						defaultValue="5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
+		<parameter name="maxInitialEnergy" displayName="Max Initial Energy" type="int" 
+						defaultValue="25" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+									
+		/>
 </parameters>
