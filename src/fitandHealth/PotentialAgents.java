@@ -18,43 +18,51 @@ public class PotentialAgents {
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	private int energy,startingEnergy;
-	public PotentialAgents(ContinuousSpace<Object> space, Grid<Object> grid, int energy) {
+	private boolean invite;
+	public PotentialAgents(ContinuousSpace<Object> space, Grid<Object> grid, int energy,boolean invite) {
 
 		this.space = space;
 		this.grid = grid;
 		this.energy =startingEnergy- energy;
 	}
-	/*@Watch(watcheeClassName="fitandHealth.ConsumerAgent",watcheeFieldNames="moved",query="within_moore 1",whenToTrigger=WatcherTriggerSchedule.IMMEDIATE)
+	public ContinuousSpace<Object> getSpace() {
+		return space;
+	}
+	public void setSpace(ContinuousSpace<Object> space) {
+		this.space = space;
+	}
+	public Grid<Object> getGrid() {
+		return grid;
+	}
+	public void setGrid(Grid<Object> grid) {
+		this.grid = grid;
+	}
+	public int getEnergy() {
+		return energy;
+	}
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+	public int getStartingEnergy() {
+		return startingEnergy;
+	}
+	public void setStartingEnergy(int startingEnergy) {
+		this.startingEnergy = startingEnergy;
+	}
+	public boolean isInvite() {
+		return invite;
+	}
+	public void setInvite(boolean invite) {
+		this.invite = invite;
+	}
+	@Watch(watcheeClassName="fitandHealth.Club",watcheeFieldNames="broadcast",query="within_moore 1",whenToTrigger=WatcherTriggerSchedule.IMMEDIATE)
 	public void run(){
-		GridPoint pt=grid.getLocation(this);
-		GridCellNgh<ConsumerAgent> nghCreator=new GridCellNgh<ConsumerAgent> (grid,pt,ConsumerAgent.class,1,1);
-		List<GridCell<ConsumerAgent>> gridCells= nghCreator.getNeighborhood(true);
-		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
-		GridPoint pointWithLeastZombies=null;
-		int minCount=Integer.MAX_VALUE;
-		for(GridCell<ConsumerAgent> cell:gridCells){
-			if(cell.size()<minCount){
-				pointWithLeastZombies=cell.getPoint();
-				minCount=cell.size();
-			}
-		}
-		if(energy>0){
-			moveTowards(pointWithLeastZombies);
-		}
-		else{
-			energy=startingEnergy;
-		}
-	  }
+		
+	}
+
 	public void moveTowards(GridPoint pt)
 	{
-		if(!pt.equals(grid.getLocation(this))){
-			NdPoint myPoint=space.getLocation(this);
-			NdPoint otherPoint=new NdPoint(pt.getX(),pt.getY());
-			double angle=SpatialMath.calcAngleFor2DMovement(space, myPoint, otherPoint);
-			space.moveByVector(this, 2, angle,0);
-			myPoint=space.getLocation(this);
-			grid.moveTo(this, (int)myPoint.getX(),(int)myPoint.getY());
-			energy--;
+		
 	}
-	}*/
-}
+	}
+

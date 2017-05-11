@@ -49,7 +49,8 @@ public class fitBuilder implements ContextBuilder<Object>  {
 				int potentialCount =15;
 				for (int i = 0; i < potentialCount; i++) {
 					int energy = RandomHelper.nextIntFromTo(4, 10);
-					context.add(new PotentialAgents(space, grid, energy));
+					boolean invite=false;
+					context.add(new PotentialAgents(space, grid, energy, invite));
 				}
 				for (Object obj : context) {
 					NdPoint pt = space.getLocation(obj);
