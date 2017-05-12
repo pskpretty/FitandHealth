@@ -7,12 +7,13 @@ public class ConsumerAgent {
 	private Boolean moved;
 
 	public ConsumerAgent(ContinuousSpace<Object> space, Grid<Object> grid) {
-
 		this.space = space;
 		this.grid = grid;
 	}
 
-
-
-
+	public void step() {
+		
+	}
+	
+	
 }

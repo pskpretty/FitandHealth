@@ -24,39 +24,42 @@ public class fitBuilder implements ContextBuilder<Object>  {
 
 	private int xdim = 50;
 	private int ydim = 50;
+	
 	@Override
 	public Context build(Context<Object> context) {
-		NetworkBuilder<Object> netBuilder=new NetworkBuilder<Object>("infection network",context,true);
+		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("infection network",context,true);
 		netBuilder.buildNetwork();
 		context.setId("FitandHealth");
-				ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
-				ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context,
-						new RandomCartesianAdder<Object>(), new repast.simphony.space.continuous.WrapAroundBorders(), 50, 50);
-				GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
-				Grid<Object> grid = gridFactory.createGrid("Grid", context,
-						new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, xdim,
-								ydim));
-				
-				
-				int clubCount = 5;
-				for (int i = 0; i < clubCount; i++) {
-					context.add(new Club(space, grid));
-				}
-				int consumerCount = 10;
-				for (int i = 0; i < consumerCount; i++) {
-					context.add(new ConsumerAgent(space, grid));
-				}
-				int potentialCount =15;
-				for (int i = 0; i < potentialCount; i++) {
-					int energy = RandomHelper.nextIntFromTo(4, 10);
-					boolean invite=false;
-					context.add(new PotentialAgents(space, grid, energy, invite));
-				}
-				for (Object obj : context) {
-					NdPoint pt = space.getLocation(obj);
-					grid.moveTo(obj, (int) pt.getX(), (int) pt.getY());
-				}
-				return context;
+		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
+		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context,
+				new RandomCartesianAdder<Object>(), new repast.simphony.space.continuous.WrapAroundBorders(), 50, 50);
+		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
+		Grid<Object> grid = gridFactory.createGrid("Grid", context,
+				new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, xdim,
+						ydim));
+		
+		
+		int clubCount = 5;
+		for (int i = 0; i < clubCount; i++) {
+			context.add(new Club(space, grid));
+		}
+		
+		int consumerCount = 10;
+		for (int i = 0; i < consumerCount; i++) {
+			context.add(new ConsumerAgent(space, grid));
+		}
+		
+		int potentialCount = 15;
+		for (int i = 0; i < potentialCount; i++) {
+			int energy = RandomHelper.nextIntFromTo(4, 10);
+			context.add(new PotentialAgents(space, grid, energy));
+		}
+		
+		for (Object obj : context) {
+			NdPoint pt = space.getLocation(obj);
+			grid.moveTo(obj, (int) pt.getX(), (int) pt.getY());
+		}
+		return context;
 	}
 
 }
