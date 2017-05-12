@@ -1,5 +1,5 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor>
-  <name>New Display</name>
+  <name>Space Display</name>
   <type>2D</type>
   <styles>
     <entry>
@@ -18,15 +18,15 @@
   <editedStyles>
     <entry>
       <string>fitandHealth.Club</string>
-      <string>fitandHealth.Club.style_0.xml</string>
+      <string>fitandHealth.Club.style_3.xml</string>
     </entry>
     <entry>
       <string>fitandHealth.PotentialAgents</string>
-      <string>fitandHealth.PotentialAgents.style_0.xml</string>
+      <string>fitandHealth.PotentialAgents.style_6.xml</string>
     </entry>
     <entry>
       <string>fitandHealth.ConsumerAgent</string>
-      <string>fitandHealth.ConsumerAgent.style_0.xml</string>
+      <string>fitandHealth.ConsumerAgent.style_6.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -34,12 +34,12 @@
   <frequency>ON_MOVE</frequency>
   <schedParams>
     <start>1.0</start>
-    <interval>1.0</interval>
+    <interval>0.5</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>1391562117</hashCode>
+    <hashCode>414064975</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>

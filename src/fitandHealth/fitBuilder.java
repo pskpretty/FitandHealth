@@ -44,14 +44,10 @@ public class fitBuilder implements ContextBuilder<Object>  {
 			context.add(new Club(space, grid));
 		}
 		
-		int consumerCount = 10;
-		for (int i = 0; i < consumerCount; i++) {
-			context.add(new ConsumerAgent(space, grid));
-		}
-		
 		int potentialCount = 15;
 		for (int i = 0; i < potentialCount; i++) {
-			int energy = RandomHelper.nextIntFromTo(4, 10);
+			
+			double energy = RandomHelper.nextDoubleFromTo(0.0, 3.0);
 			context.add(new PotentialAgents(space, grid, energy));
 		}
 		

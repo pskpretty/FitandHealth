@@ -6,7 +6,7 @@ import repast.simphony.space.grid.Grid;
 
 public class PotentialAgents extends Agent {
 	
-	public PotentialAgents(ContinuousSpace<Object> space, Grid<Object> grid, int energy) {
+	public PotentialAgents(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		super(space, grid, energy);
 	}
 	
@@ -14,6 +14,17 @@ public class PotentialAgents extends Agent {
 	public void step() {
 		if(isInviteReceived() || isWomReceived()){
 			incrementEnergy();
+		} else {
+			tiring();
+		}
+		
+		if(getCurrentEnergy() <= 0.0) {
+			dead();
+			return;
+		}
+		
+		if(getCurrentEnergy() >= POTENTIAL_CONSUMENT_BORDER) {
+			convertToConsumer();
 		}
 	}
 }
