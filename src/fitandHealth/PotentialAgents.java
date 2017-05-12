@@ -57,12 +57,24 @@ public class PotentialAgents {
 	}
 	@Watch(watcheeClassName="fitandHealth.Club",watcheeFieldNames="broadcast",query="within_moore 1",whenToTrigger=WatcherTriggerSchedule.IMMEDIATE)
 	public void run(){
-		
+		//call to invite updation
+		//call energy check
 	}
-
-	public void moveTowards(GridPoint pt)
-	{
-		
+	/* this would be called after an energy transformation occurs. to check agent
+	 * if potential agent to consumer agent if energy increases more than 3
+	 * if energy falls below 3 or deadline of consumer agent stage reaches then   consumer agent-> potential agent
+	 * if energy falls less than 1 then agent dies
+	 */
+	public void energyCheck(){
+	
 	}
+	/*in this energy=energy +0.5 if invite received(max of 6)
+	 * energy= energy -0.25 if invite not received(min of 1. if less than 1 then agent is removed)
+	 *  */
+	public void inviteEnergyUpdation(GridPoint pt) {
+		
+			
+		}
+	
 	}
 

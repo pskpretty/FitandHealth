@@ -21,26 +21,26 @@ public class Club {
 		this.space = space;
 		this.grid = grid;
 	}
-	
+	/*At every iteration health club is expected to send advertisement to nearby potential agents
+	  */
 	@ScheduledMethod(start = 1, interval = 1)
 	public void step(){
 		GridPoint pt = grid.getLocation(this);
 		GridCellNgh<PotentialAgents> nghCreator = new GridCellNgh<PotentialAgents>(grid, pt, PotentialAgents.class, 1, 1);
 		List<GridCell<PotentialAgents>> gridCells = nghCreator.getNeighborhood(true);
-		MooreQuery<PotentialAgents> query=new MooreQuery(grid,this);
-		Iterator<PotentialAgents> iter=query.query().iterator();
-		for(Object o:query.query()){
+		
+		/*a code snippet to update the invite to true of potential agents that receive broadcast from health club
+		//MooreQuery<PotentialAgents> query=new MooreQuery(grid,this);
+		//Iterator<PotentialAgents> iter=query.query().iterator();
+		 for(Object o:query.query()){
 			System.out.println(o);
 			if(o instanceof PotentialAgents){
 				System.out.println("Potential agent"+o);
 			}
-		}
+		}*/
 		
 		broadcast = true;
 	}
-	public void inviteUpdation(GridPoint pt) {
-		
-			
-		}
+	
 	}
 
