@@ -3,38 +3,22 @@
   <type>2D</type>
   <styles>
     <entry>
-      <string>fitandHealth.Agent</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
-    </entry>
-    <entry>
       <string>fitandHealth.Club</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
     <entry>
-      <string>fitandHealth.PotentialAgents</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
-    </entry>
-    <entry>
-      <string>fitandHealth.ConsumerAgent</string>
-      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+      <string>fitandHealth.FitAgent</string>
+      <string>fitandHealth.FitAgentStyle</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
-      <string>fitandHealth.Agent</string>
-      <string>fitandHealth.Agent.style_1.xml</string>
-    </entry>
-    <entry>
       <string>fitandHealth.Club</string>
-      <string>fitandHealth.Club.style_12.xml</string>
+      <string>fitandHealth.Club.style_13.xml</string>
     </entry>
     <entry>
-      <string>fitandHealth.PotentialAgents</string>
-      <string>fitandHealth.PotentialAgents.style_12.xml</string>
-    </entry>
-    <entry>
-      <string>fitandHealth.ConsumerAgent</string>
-      <string>fitandHealth.ConsumerAgent.style_9.xml</string>
+      <string>fitandHealth.FitAgent</string>
+      <null/>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -47,27 +31,19 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>907067019</hashCode>
+    <hashCode>-109541700</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
-      <string>fitandHealth.Agent</string>
-      <int>2</int>
-    </entry>
-    <entry>
       <string>fitandHealth.Club</string>
-      <int>3</int>
-    </entry>
-    <entry>
-      <string>fitandHealth.PotentialAgents</string>
-      <int>0</int>
-    </entry>
-    <entry>
-      <string>fitandHealth.ConsumerAgent</string>
       <int>1</int>
+    </entry>
+    <entry>
+      <string>fitandHealth.FitAgent</string>
+      <int>0</int>
     </entry>
   </layerOrder>
   <projections>

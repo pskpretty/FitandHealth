@@ -11,7 +11,7 @@ import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.SimUtilities;
-public class ConsumerAgent extends Agent{
+public class ConsumerAgent extends FitAgent{
 
 	public ConsumerAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		super(space, grid, energy);

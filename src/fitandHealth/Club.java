@@ -22,17 +22,17 @@ public class Club {
 	@ScheduledMethod(start = 1, interval = 1)
 	public void step(){
 		GridPoint pt = grid.getLocation(this);
-		GridCellNgh<Agent> nghCreator = new GridCellNgh<Agent>(grid, pt, Agent.class, 1, 1);
-		List<GridCell<Agent>> gridCells = nghCreator.getNeighborhood(true);
+		GridCellNgh<FitAgent> nghCreator = new GridCellNgh<FitAgent>(grid, pt, FitAgent.class, 1, 1);
+		List<GridCell<FitAgent>> gridCells = nghCreator.getNeighborhood(true);
 		
-		for (GridCell<Agent> cell : gridCells){
-			for(Agent agent : cell.items()) {
+		for (GridCell<FitAgent> cell : gridCells){
+			for(FitAgent agent : cell.items()) {
 				sendInvite(agent);
 			}
 		}
 	}
 	
-	public void sendInvite(Agent agent) {
+	public void sendInvite(FitAgent agent) {
 		agent.receiveInvite(this);
 	}
 

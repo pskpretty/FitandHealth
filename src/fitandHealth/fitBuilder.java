@@ -42,10 +42,10 @@ public class fitBuilder implements ContextBuilder<Object>  {
 			context.add(new Club(space, grid));
 		}
 		
-		int potentialCount = 15;
-		for (int i = 0; i < potentialCount; i++) {
-			double energy = RandomHelper.nextDoubleFromTo(0.0, 3.0);
-			context.add(new Agent(space, grid, energy));
+		int agentCount = 15;
+		for (int i = 0; i < agentCount; i++) {
+			double energy = RandomHelper.nextDoubleFromTo(0.0, 6.0);
+			context.add(new FitAgent(space, grid, energy));
 		}
 		
 		for (Object obj : context) {
