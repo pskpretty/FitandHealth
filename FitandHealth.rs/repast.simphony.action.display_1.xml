@@ -1,7 +1,11 @@
 <repast.simphony.visualization.engine.CartesianDisplayDescriptor>
-  <name>Space Display</name>
+  <name>New Display</name>
   <type>2D</type>
   <styles>
+    <entry>
+      <string>fitandHealth.Agent</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
     <entry>
       <string>fitandHealth.Club</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
@@ -17,16 +21,20 @@
   </styles>
   <editedStyles>
     <entry>
+      <string>fitandHealth.Agent</string>
+      <string>fitandHealth.Agent.style_1.xml</string>
+    </entry>
+    <entry>
       <string>fitandHealth.Club</string>
-      <string>fitandHealth.Club.style_3.xml</string>
+      <string>fitandHealth.Club.style_12.xml</string>
     </entry>
     <entry>
       <string>fitandHealth.PotentialAgents</string>
-      <string>fitandHealth.PotentialAgents.style_6.xml</string>
+      <string>fitandHealth.PotentialAgents.style_12.xml</string>
     </entry>
     <entry>
       <string>fitandHealth.ConsumerAgent</string>
-      <string>fitandHealth.ConsumerAgent.style_6.xml</string>
+      <string>fitandHealth.ConsumerAgent.style_9.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -34,28 +42,32 @@
   <frequency>ON_MOVE</frequency>
   <schedParams>
     <start>1.0</start>
-    <interval>0.5</interval>
+    <interval>1.0</interval>
     <priority>-Infinity</priority>
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>414064975</hashCode>
+    <hashCode>907067019</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>
   <layoutInterval>0</layoutInterval>
   <layerOrder>
     <entry>
+      <string>fitandHealth.Agent</string>
+      <int>2</int>
+    </entry>
+    <entry>
       <string>fitandHealth.Club</string>
-      <int>0</int>
+      <int>3</int>
     </entry>
     <entry>
       <string>fitandHealth.PotentialAgents</string>
-      <int>1</int>
+      <int>0</int>
     </entry>
     <entry>
       <string>fitandHealth.ConsumerAgent</string>
-      <int>2</int>
+      <int>1</int>
     </entry>
   </layerOrder>
   <projections>
