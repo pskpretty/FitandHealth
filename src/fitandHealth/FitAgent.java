@@ -3,6 +3,7 @@ package fitandHealth;
 import repast.simphony.context.Context;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
+import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -81,7 +82,7 @@ public class FitAgent  {
 		space.moveTo(agent, spacePt.getX(), spacePt.getY());
 		grid.moveTo(agent, pt.getX(), pt.getY());
 	}
-	
+
 	public void convertToPotential() {
 		NdPoint spacePt = space.getLocation(this);
 		GridPoint pt = grid.getLocation(this);
