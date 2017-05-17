@@ -1,7 +1,6 @@
 package fitandHealth;
 import java.util.List;
 
-import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
@@ -9,10 +8,8 @@ import repast.simphony.random.RandomHelper;
 import repast.simphony.space.SpatialMath;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
-import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
-import repast.simphony.util.ContextUtils;
 import repast.simphony.util.SimUtilities;
 public class ConsumerAgent extends FitAgent{
 
@@ -45,7 +42,7 @@ public class ConsumerAgent extends FitAgent{
 		
 		for (GridCell<PotentialAgents> cell : gridCells) {
 			for(PotentialAgents agent : cell.items()) {
-				sendWom(agent,pt);
+				sendWom(agent);
 			}
 		}
 	}
@@ -88,18 +85,9 @@ public class ConsumerAgent extends FitAgent{
 		}
 	}
 	
-	public void infect(GridPoint source,GridPoint destination){
-		System.out.println("inside consumer draw wdge");
-		Context<FitAgent> context = ContextUtils.getContext(this);
-		Network < Object > net = ( Network < Object >) context .
-				getProjection (" infection network ");
-			net . addEdge ( destination , source );
-	}
 	
-	public void sendWom(PotentialAgents agent,GridPoint source){
-	
-		GridPoint destination=agent.getGrid().getLocation(this);
-		infect(source,destination);
+	public void sendWom(PotentialAgents agent){
+
 		agent.receiveWom(this);
 	}
 }

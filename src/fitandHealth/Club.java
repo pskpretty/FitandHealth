@@ -2,15 +2,12 @@ package fitandHealth;
 
 import java.util.List;
 
-import repast.simphony.context.Context;
 import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.space.continuous.ContinuousSpace;
-import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
-import repast.simphony.util.ContextUtils;
 
 public class Club {
 	private ContinuousSpace<Object> space;
@@ -30,25 +27,12 @@ public class Club {
 		
 		for (GridCell<FitAgent> cell : gridCells){
 			for(FitAgent agent : cell.items()) {
-				sendInvite(agent,pt);
+				sendInvite(agent);
 			}
 		}
 	}
-	public void infect(GridPoint source,GridPoint destination){
-		System.out.println("inside club draw edge");
-		if(destination!=null&&source !=null)
-		{
-		Context<FitAgent> context = ContextUtils.getContext(this);
-		Network < Object > net = ( Network < Object >) context .
-				getProjection (" infection network ");
-			net . addEdge ( destination , source );}
-	}
 	
-	public void sendInvite(FitAgent agent,GridPoint source) {
-		System.out.println("inside sendInvite club");
-		GridPoint destination=agent.getGrid().getLocation(this);
-		System.out.println(source+"source"+destination+"destination");
-		infect(source,destination);
+	public void sendInvite(FitAgent agent) {
 		agent.receiveInvite(this);
 	}
 
