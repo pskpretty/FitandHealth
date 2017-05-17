@@ -1,15 +1,11 @@
 package fitandHealth;
 
 import repast.simphony.context.Context;
-import repast.simphony.context.DefaultContext;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactory;
 import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
-import repast.simphony.context.space.graph.NetworkBuilder;
 import repast.simphony.context.space.grid.GridFactory;
 import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
-import repast.simphony.engine.environment.RunEnvironment;
-import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
@@ -18,8 +14,7 @@ import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridBuilderParameters;
 import repast.simphony.space.grid.RandomGridAdder;
 import repast.simphony.space.grid.WrapAroundBorders;
-public class fitBuilder implements ContextBuilder<Object>  {
-	//Parameters p = RunEnvironment.getInstance().getParameters();
+public class FitBuilder implements ContextBuilder<Object>  {
 	
 
 	private int xdim = 50;
@@ -27,8 +22,7 @@ public class fitBuilder implements ContextBuilder<Object>  {
 	
 	@Override
 	public Context build(Context<Object> context) {
-		NetworkBuilder<Object> netBuilder = new NetworkBuilder<Object>("infection network",context,true);
-		netBuilder.buildNetwork();
+
 		context.setId("FitandHealth");
 		ContinuousSpaceFactory spaceFactory = ContinuousSpaceFactoryFinder.createContinuousSpaceFactory(null);
 		ContinuousSpace<Object> space = spaceFactory.createContinuousSpace("space", context,
@@ -45,7 +39,7 @@ public class fitBuilder implements ContextBuilder<Object>  {
 		int agentCount = 15;
 		for (int i = 0; i < agentCount; i++) {
 			double energy = RandomHelper.nextDoubleFromTo(0.0, 3.0);
-			context.add(new PotentialAgents(space, grid, energy));
+			context.add(new PotentialAgent(space, grid, energy));
 		}
 		
 		for (Object obj : context) {

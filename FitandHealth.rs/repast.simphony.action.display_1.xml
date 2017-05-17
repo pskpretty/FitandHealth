@@ -8,13 +8,13 @@
     </entry>
     <entry>
       <string>fitandHealth.FitAgent</string>
-      <string>repast.simphony.visualizationOGL2D.DefaultStyleOGL2D</string>
+      <string>fitandHealth.FitAgentStyle</string>
     </entry>
   </styles>
   <editedStyles>
     <entry>
       <string>fitandHealth.Club</string>
-      <string>fitandHealth.Club.style_13.xml</string>
+      <string>fitandHealth.Club.style_19.xml</string>
     </entry>
     <entry>
       <string>fitandHealth.FitAgent</string>
@@ -31,7 +31,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>-1047021291</hashCode>
+    <hashCode>506416603</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>

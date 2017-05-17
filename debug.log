@@ -454,3 +454,18 @@ Caused by: java.lang.NullPointerException
 	at fitandHealth.Club.sendInvite(Club.java:50)
 	at fitandHealth.Club.step(Club.java:33)
 	... 10 more
+FATAL [Thread-7] 2017-05-17 13:36:09,156 repast.simphony.ui.GUIScheduleRunner - RunTimeException when running the schedule
+Current tick (3.0)
+java.lang.ClassCastException: fitandHealth.Club cannot be cast to fitandHealth.FitAgent
+	at fitandHealth.FitAgentStyle.getColor(FitAgentStyle.java:11)
+	at repast.simphony.visualizationOGL2D.StyledDisplayLayerOGL2D.applyStyle(StyledDisplayLayerOGL2D.java:57)
+	at repast.simphony.visualizationOGL2D.StyledDisplayLayerOGL2D.processAdded(StyledDisplayLayerOGL2D.java:230)
+	at repast.simphony.visualizationOGL2D.StyledDisplayLayerOGL2D.update(StyledDisplayLayerOGL2D.java:250)
+	at repast.simphony.visualizationOGL2D.DisplayOGL2D.update(DisplayOGL2D.java:404)
+	at repast.simphony.visualization.engine.DisplayComponentControllerAction$DisplayUpdater.execute(DisplayComponentControllerAction.java:44)
+	at repast.simphony.engine.schedule.DefaultAction.execute(DefaultAction.java:38)
+	at repast.simphony.engine.schedule.ScheduleGroup.executeList(ScheduleGroup.java:205)
+	at repast.simphony.engine.schedule.ScheduleGroup.execute(ScheduleGroup.java:238)
+	at repast.simphony.engine.schedule.Schedule.execute(Schedule.java:352)
+	at repast.simphony.ui.GUIScheduleRunner$ScheduleLoopRunnable.run(GUIScheduleRunner.java:52)
+	at java.lang.Thread.run(Unknown Source)

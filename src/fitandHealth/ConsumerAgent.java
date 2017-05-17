@@ -11,7 +11,7 @@ import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.SimUtilities;
-public class ConsumerAgent extends FitAgent{
+public class ConsumerAgent extends Agent{
 
 	public ConsumerAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		super(space, grid, energy);
@@ -36,12 +36,12 @@ public class ConsumerAgent extends FitAgent{
 		Grid<Object> grid = getGrid();
 		GridPoint pt = grid.getLocation(this);
 		
-		GridCellNgh<PotentialAgents> nghCreator = new GridCellNgh<PotentialAgents>(grid, pt, PotentialAgents.class, 1, 1);
+		GridCellNgh<PotentialAgent> nghCreator = new GridCellNgh<PotentialAgent>(grid, pt, PotentialAgent.class, 1, 1);
 		
-		List<GridCell<PotentialAgents>> gridCells = nghCreator.getNeighborhood(true);
+		List<GridCell<PotentialAgent>> gridCells = nghCreator.getNeighborhood(true);
 		
-		for (GridCell<PotentialAgents> cell : gridCells) {
-			for(PotentialAgents agent : cell.items()) {
+		for (GridCell<PotentialAgent> cell : gridCells) {
+			for(PotentialAgent agent : cell.items()) {
 				sendWom(agent);
 			}
 		}
@@ -53,15 +53,15 @@ public class ConsumerAgent extends FitAgent{
 		
 		GridPoint pt = grid.getLocation(this);
 		
-		GridCellNgh<PotentialAgents> nghCreator = new GridCellNgh<PotentialAgents>(grid, pt, PotentialAgents.class, 1, 1);
+		GridCellNgh<PotentialAgent> nghCreator = new GridCellNgh<PotentialAgent>(grid, pt, PotentialAgent.class, 1, 1);
 		
-		List<GridCell<PotentialAgents>> gridCells = nghCreator.getNeighborhood(true);
+		List<GridCell<PotentialAgent>> gridCells = nghCreator.getNeighborhood(true);
 		
 		SimUtilities.shuffle(gridCells, RandomHelper.getUniform());
 		
 		GridPoint pointWithMostPotentialAgents = null;
 		int maxCount = -1;
-		for (GridCell<PotentialAgents> cell : gridCells) {
+		for (GridCell<PotentialAgent> cell : gridCells) {
 			if (cell.size() > maxCount) {
 				pointWithMostPotentialAgents = cell.getPoint();
 				maxCount = cell.size();
@@ -86,7 +86,7 @@ public class ConsumerAgent extends FitAgent{
 	}
 	
 	
-	public void sendWom(PotentialAgents agent){
+	public void sendWom(PotentialAgent agent){
 
 		agent.receiveWom(this);
 	}

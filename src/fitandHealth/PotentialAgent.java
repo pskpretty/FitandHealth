@@ -4,8 +4,8 @@ import repast.simphony.engine.schedule.ScheduledMethod;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
 
-public class PotentialAgents extends FitAgent {
-	public PotentialAgents(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
+public class PotentialAgent extends Agent {
+	public PotentialAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		super(space, grid, energy);
 	}
 	

@@ -8,7 +8,7 @@ import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
 
-public class FitAgent  {
+public class Agent  {
 	private ContinuousSpace<Object> space;
 	private Grid<Object> grid;
 	private double currentEnergy;
@@ -19,7 +19,7 @@ public class FitAgent  {
 	static final private double TIRING_FACTOR = 0.25;
 	static final public double POTENTIAL_CONSUMENT_BORDER = 3.0;
 	
-	public FitAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
+	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		this.space = space;
 		this.grid = grid;
 		this.currentEnergy = energy;
@@ -67,14 +67,14 @@ public class FitAgent  {
 	}
 	
 	public void dead() {
-		Context<FitAgent> context = ContextUtils.getContext(this);
+		Context<Agent> context = ContextUtils.getContext(this);
 		context.remove(this);
 	}
 	
 	public void convertToConsumer() {
 		NdPoint spacePt = space.getLocation(this);
 		GridPoint pt = grid.getLocation(this);
-		Context<FitAgent> context = ContextUtils.getContext(this);
+		Context<Agent> context = ContextUtils.getContext(this);
 		context.remove(this);
 		
 		ConsumerAgent agent = new ConsumerAgent(space, grid, currentEnergy);
@@ -86,10 +86,10 @@ public class FitAgent  {
 	public void convertToPotential() {
 		NdPoint spacePt = space.getLocation(this);
 		GridPoint pt = grid.getLocation(this);
-		Context<FitAgent> context = ContextUtils.getContext(this);
+		Context<Agent> context = ContextUtils.getContext(this);
 		context.remove(this);
 		
-		PotentialAgents agent = new PotentialAgents(space, grid, currentEnergy);
+		PotentialAgent agent = new PotentialAgent(space, grid, currentEnergy);
 		context.add(agent);
 		space.moveTo(agent, spacePt.getX(), spacePt.getY());
 		grid.moveTo(agent, pt.getX(), pt.getY());
