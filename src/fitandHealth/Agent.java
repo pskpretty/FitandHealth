@@ -14,10 +14,10 @@ public class Agent  {
 	private double currentEnergy;
 	private boolean inviteReceived;
 	private boolean womReceived;
-	static final private double MAX_ENERGY = 6.0;
+	static final private double MAX_ENERGY = 50.0;
 	static final private double INVITE_ENERGY = 1.0;
-	static final private double TIRING_FACTOR = 0.25;
-	static final public double POTENTIAL_CONSUMENT_BORDER = 3.0;
+	//static final private double TIRING_FACTOR = 0.00000005;
+	static final public double POTENTIAL_CONSUMENT_BORDER = 10.0;
 	
 	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		this.space = space;
@@ -58,9 +58,9 @@ public class Agent  {
 		womReceived = false;
 	}
 	
-	public void tiring() {
+	/*public void tiring() {
 		currentEnergy -= TIRING_FACTOR;
-	}
+	}*/
 	
 	public double getCurrentEnergy() {
 		return currentEnergy;

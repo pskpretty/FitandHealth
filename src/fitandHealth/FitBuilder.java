@@ -31,14 +31,14 @@ public class FitBuilder implements ContextBuilder<Object>  {
 		Grid<Object> grid = gridFactory.createGrid("Grid", context,
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, xdim,
 						ydim));
-		int clubCount = 10;
+		int clubCount = 5;
 		for (int i = 0; i < clubCount; i++) {
 			context.add(new Club(space, grid));
 		}
 		
 		int agentCount = 15;
 		for (int i = 0; i < agentCount; i++) {
-			double energy = RandomHelper.nextDoubleFromTo(0.0, 3.0);
+			double energy = RandomHelper.nextDoubleFromTo(0.0, 12.0);
 			context.add(new PotentialAgent(space, grid, energy));
 		}
 		

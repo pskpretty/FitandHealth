@@ -13,12 +13,12 @@ public class PotentialAgent extends Agent {
 	public void step() {
 		if(isInviteReceived() || isWomReceived()){
 			incrementEnergy();
-		} else {
+		} /*else {
 			tiring();
-		}
+		}*/
 		
 		if(getCurrentEnergy() <= 0.0) {
-			dead();
+			//dead();
 			return;
 		}
 		
