@@ -45,7 +45,7 @@ public class fitBuilder implements ContextBuilder<Object>  {
 		int agentCount = 15;
 		for (int i = 0; i < agentCount; i++) {
 			double energy = RandomHelper.nextDoubleFromTo(0.0, 3.0);
-			context.add(new FitAgent(space, grid, energy));
+			context.add(new PotentialAgents(space, grid, energy));
 		}
 		
 		for (Object obj : context) {
