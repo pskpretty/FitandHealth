@@ -10,6 +10,10 @@
       <string>fitandHealth.PotentialAgent</string>
       <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
     </entry>
+    <entry>
+      <string>fitandHealth.ConsumerAgent</string>
+      <string>repast.simphony.visualization.editedStyle.EditedStyle2D</string>
+    </entry>
   </styles>
   <editedStyles>
     <entry>
@@ -19,6 +23,10 @@
     <entry>
       <string>fitandHealth.PotentialAgent</string>
       <string>fitandHealth.PotentialAgent.style_2.xml</string>
+    </entry>
+    <entry>
+      <string>fitandHealth.ConsumerAgent</string>
+      <string>fitandHealth.ConsumerAgent.style_10.xml</string>
     </entry>
   </editedStyles>
   <netStyles/>
@@ -31,7 +39,7 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>1208704638</hashCode>
+    <hashCode>-1170709025</hashCode>
   </schedParams>
   <layoutClassName>foo.bar.baz</layoutClassName>
   <layoutProjection>space</layoutProjection>
@@ -39,10 +47,14 @@
   <layerOrder>
     <entry>
       <string>fitandHealth.Club</string>
-      <int>1</int>
+      <int>2</int>
     </entry>
     <entry>
       <string>fitandHealth.PotentialAgent</string>
+      <int>1</int>
+    </entry>
+    <entry>
+      <string>fitandHealth.ConsumerAgent</string>
       <int>0</int>
     </entry>
   </layerOrder>

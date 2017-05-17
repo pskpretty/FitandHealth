@@ -3,7 +3,6 @@ package fitandHealth;
 import repast.simphony.context.Context;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
-import repast.simphony.space.graph.Network;
 import repast.simphony.space.grid.Grid;
 import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.ContextUtils;
@@ -15,9 +14,9 @@ public class Agent  {
 	private boolean inviteReceived;
 	private boolean womReceived;
 	static final private double MAX_ENERGY = 50.0;
-	static final private double INVITE_ENERGY = 1.0;
-	//static final private double TIRING_FACTOR = 0.00000005;
-	static final public double POTENTIAL_CONSUMENT_BORDER = 10.0;
+	static final private double INVITE_ENERGY = 0.5;
+	static final private double TIRING_FACTOR = 0.00000005;
+	static final public double POTENTIAL_CONSUMENT_BORDER = 25.0;
 	
 	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		this.space = space;
@@ -58,9 +57,9 @@ public class Agent  {
 		womReceived = false;
 	}
 	
-	/*public void tiring() {
+	public void tiring() {
 		currentEnergy -= TIRING_FACTOR;
-	}*/
+	}
 	
 	public double getCurrentEnergy() {
 		return currentEnergy;

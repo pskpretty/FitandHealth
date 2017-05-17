@@ -21,9 +21,9 @@ public class ConsumerAgent extends Agent{
 	public void step() {
 		if(isInviteReceived()){
 			incrementEnergy();
-		} /*else {
+		} else {
 			tiring();
-		}*/
+		}
 		
 		if(getCurrentEnergy() <= POTENTIAL_CONSUMENT_BORDER) {
 			convertToPotential();
