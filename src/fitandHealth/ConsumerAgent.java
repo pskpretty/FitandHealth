@@ -85,7 +85,6 @@ public class ConsumerAgent extends Agent{
 		}
 	}
 	
-	
 	public void sendWom(PotentialAgent agent){
 
 		agent.receiveWom(this);
