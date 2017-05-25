@@ -6,6 +6,8 @@ import repast.simphony.context.space.continuous.ContinuousSpaceFactoryFinder;
 import repast.simphony.context.space.grid.GridFactory;
 import repast.simphony.context.space.grid.GridFactoryFinder;
 import repast.simphony.dataLoader.ContextBuilder;
+import repast.simphony.engine.environment.RunEnvironment;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.random.RandomHelper;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
@@ -31,15 +33,21 @@ public class FitBuilder implements ContextBuilder<Object>  {
 		Grid<Object> grid = gridFactory.createGrid("Grid", context,
 				new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, xdim,
 						ydim));
-		int clubCount = 5;
+		Parameters params=RunEnvironment.getInstance().getParameters();
+		int clubCount = params.getInteger("club_count");
 		for (int i = 0; i < clubCount; i++) {
 			context.add(new Club(space, grid));
 		}
 		
-		int agentCount = 100;
-		for (int i = 0; i < agentCount; i++) {
+		int potentialAgentCount = params.getInteger("potential_count");
+		for (int i = 0; i < potentialAgentCount; i++) {
 			double energy = RandomHelper.nextDoubleFromTo(0.0, 25.0);
 			context.add(new PotentialAgent(space, grid, energy));
+		}
+		int consumerAgentCount = params.getInteger("consumer_count");
+		for (int i = 0; i < consumerAgentCount; i++) {
+			double energy = RandomHelper.nextDoubleFromTo(25.0, 50.0);
+			context.add(new ConsumerAgent(space, grid, energy));
 		}
 		
 		for (Object obj : context) {
