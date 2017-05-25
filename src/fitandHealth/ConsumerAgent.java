@@ -1,7 +1,9 @@
 package fitandHealth;
 import java.util.List;
 
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.random.RandomHelper;
@@ -39,11 +41,14 @@ public class ConsumerAgent extends Agent{
 		GridCellNgh<PotentialAgent> nghCreator = new GridCellNgh<PotentialAgent>(grid, pt, PotentialAgent.class, 1, 1);
 		
 		List<GridCell<PotentialAgent>> gridCells = nghCreator.getNeighborhood(true);
-		
+		Parameters params=RunEnvironment.getInstance().getParameters();
+		 boolean advertisement = params.getBoolean("consumer_advertisement");
+		 if(advertisement==true){
 		for (GridCell<PotentialAgent> cell : gridCells) {
 			for(PotentialAgent agent : cell.items()) {
 				sendWom(agent);
 			}
+		}
 		}
 	}
 	
