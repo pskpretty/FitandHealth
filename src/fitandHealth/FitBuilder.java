@@ -19,8 +19,6 @@ import repast.simphony.space.grid.WrapAroundBorders;
 public class FitBuilder implements ContextBuilder<Object>  {
 	
 
-	private int xdim = 50;
-	private int ydim = 50;
 	
 	@Override
 	public Context build(Context<Object> context) {
@@ -31,8 +29,8 @@ public class FitBuilder implements ContextBuilder<Object>  {
 				new RandomCartesianAdder<Object>(), new repast.simphony.space.continuous.WrapAroundBorders(), 50, 50);
 		GridFactory gridFactory = GridFactoryFinder.createGridFactory(null);
 		Grid<Object> grid = gridFactory.createGrid("Grid", context,
-				new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, xdim,
-						ydim));
+				new GridBuilderParameters<Object>(new WrapAroundBorders(), new RandomGridAdder<Object>(), true, 50,
+						50));
 		Parameters params=RunEnvironment.getInstance().getParameters();
 		int clubCount = params.getInteger("club_count");
 		for (int i = 0; i < clubCount; i++) {

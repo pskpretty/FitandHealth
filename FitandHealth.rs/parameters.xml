@@ -2,16 +2,35 @@
 <parameters>
 
 	<parameter name="randomSeed" displayName="Default Random Seed" type="int" defaultValue="__NULL__" />
-		<parameter name="minInitialEnergy" displayName="Min Initial Energy" type="int" 
+		<parameter name="min_energy" displayName="Min Motivation Energy" type="int" 
 						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-		<parameter name="maxInitialEnergy" displayName="Max Initial Energy" type="int" 
-						defaultValue="25" 
+		<parameter name="max_energy" displayName="Max Motivation Energy" type="double" 
+						defaultValue="50" 
 						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+			<parameter name="tiring_factor" displayName="Tiring Factor" type="double" 
+						defaultValue="0.00000005" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		<parameter name="POTENTIAL_CONSUMENT_BORDER" displayName="Agent Energy border" type="double" 
+						defaultValue="25.0" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
+									
+		/>
+		
+		<parameter name="invite_energy" displayName=" Motivation Increase factor" type="double" 
+						defaultValue="0.5" 
+						isReadOnly="false" 
+						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
 			<parameter name="potential_count" displayName="Potential count" type="int" 
@@ -27,7 +46,7 @@
 									
 		/>
 				<parameter name="consumer_count" displayName="Zombie Count" type="int" 
-						defaultValue="10" 
+						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									

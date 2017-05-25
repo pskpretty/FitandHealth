@@ -1,6 +1,8 @@
 package fitandHealth;
 
 import repast.simphony.context.Context;
+import repast.simphony.engine.environment.RunEnvironment;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.continuous.NdPoint;
 import repast.simphony.space.grid.Grid;
@@ -13,10 +15,11 @@ public class Agent  {
 	private double currentEnergy;
 	private boolean inviteReceived;
 	private boolean womReceived;
-	static final private double MAX_ENERGY = 50.0;
-	static final private double INVITE_ENERGY = 0.5;
-	static final private double TIRING_FACTOR = 0.00000005;
-	static final public double POTENTIAL_CONSUMENT_BORDER = 25.0;
+	Parameters params=RunEnvironment.getInstance().getParameters();
+	 private double MAX_ENERGY = params.getDouble("max_energy");
+	 private double INVITE_ENERGY  = params.getDouble("invite_energy");
+	 private double TIRING_FACTOR = params.getDouble("tiring_factor");
+	 public double POTENTIAL_CONSUMENT_BORDER =params.getDouble("POTENTIAL_CONSUMENT_BORDER");
 	
 	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
 		this.space = space;
