@@ -15,16 +15,19 @@ public class Agent  {
 	private double currentEnergy;
 	private boolean inviteReceived;
 	private boolean womReceived;
+
+	private int id;
 	Parameters params=RunEnvironment.getInstance().getParameters();
 	 private double MAX_ENERGY = params.getDouble("max_energy");
 	 private double INVITE_ENERGY  = params.getDouble("invite_energy");
 	 private double TIRING_FACTOR = params.getDouble("tiring_factor");
 	 public double POTENTIAL_CONSUMENT_BORDER =params.getDouble("POTENTIAL_CONSUMENT_BORDER");
 	
-	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
+	public Agent(ContinuousSpace<Object> space, Grid<Object> grid, double energy,int id) {
 		this.space = space;
 		this.grid = grid;
 		this.currentEnergy = energy;
+		this.id=id;
 	}
 	    
 	
@@ -73,27 +76,36 @@ public class Agent  {
 		context.remove(this);
 	}
 	
-	public void convertToConsumer() {
+	public void convertToConsumer(int id) {
 		NdPoint spacePt = space.getLocation(this);
 		GridPoint pt = grid.getLocation(this);
 		Context<Agent> context = ContextUtils.getContext(this);
 		context.remove(this);
 		
-		ConsumerAgent agent = new ConsumerAgent(space, grid, currentEnergy);
+		ConsumerAgent agent = new ConsumerAgent(space, grid, currentEnergy,id);
 		context.add(agent);
 		space.moveTo(agent, spacePt.getX(), spacePt.getY());
 		grid.moveTo(agent, pt.getX(), pt.getY());
 	}
 
-	public void convertToPotential() {
+	public void convertToPotential(int id) {
 		NdPoint spacePt = space.getLocation(this);
 		GridPoint pt = grid.getLocation(this);
 		Context<Agent> context = ContextUtils.getContext(this);
 		context.remove(this);
 		
-		PotentialAgent agent = new PotentialAgent(space, grid, currentEnergy);
+		PotentialAgent agent = new PotentialAgent(space, grid, currentEnergy,id);
 		context.add(agent);
 		space.moveTo(agent, spacePt.getX(), spacePt.getY());
 		grid.moveTo(agent, pt.getX(), pt.getY());
 	}
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 }

@@ -5,8 +5,8 @@ import repast.simphony.space.continuous.ContinuousSpace;
 import repast.simphony.space.grid.Grid;
 
 public class PotentialAgent extends Agent {
-	public PotentialAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
-		super(space, grid, energy);
+	public PotentialAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy,int id) {
+		super(space, grid, energy,id);
 	}
 	
 	@ScheduledMethod(start = 1, interval = 0.5)
@@ -23,7 +23,7 @@ public class PotentialAgent extends Agent {
 		}
 		
 		if(getCurrentEnergy() >= POTENTIAL_CONSUMENT_BORDER) {
-			convertToConsumer();
+			convertToConsumer(getId());
 		}
 	}
 }

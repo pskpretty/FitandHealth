@@ -2,7 +2,9 @@ package fitandHealth;
 
 import java.util.List;
 
+import repast.simphony.engine.environment.RunEnvironment;
 import repast.simphony.engine.schedule.ScheduledMethod;
+import repast.simphony.parameter.Parameters;
 import repast.simphony.query.space.grid.GridCell;
 import repast.simphony.query.space.grid.GridCellNgh;
 import repast.simphony.space.continuous.ContinuousSpace;
@@ -24,10 +26,13 @@ public class Club {
 		GridPoint pt = grid.getLocation(this);
 		GridCellNgh<Agent> nghCreator = new GridCellNgh<Agent>(grid, pt, Agent.class, 1, 1);
 		List<GridCell<Agent>> gridCells = nghCreator.getNeighborhood(true);
-		
+		Parameters params=RunEnvironment.getInstance().getParameters();
+		 boolean advertisement = params.getBoolean("club_advertisement");
+		 if(advertisement==true){
 		for (GridCell<Agent> cell : gridCells){
 			for(Agent agent : cell.items()) {
 				sendInvite(agent);
+			}
 			}
 		}
 	}

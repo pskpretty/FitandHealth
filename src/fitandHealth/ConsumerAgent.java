@@ -15,8 +15,8 @@ import repast.simphony.space.grid.GridPoint;
 import repast.simphony.util.SimUtilities;
 public class ConsumerAgent extends Agent{
 
-	public ConsumerAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy) {
-		super(space, grid, energy);
+	public ConsumerAgent(ContinuousSpace<Object> space, Grid<Object> grid, double energy,int id) {
+		super(space, grid, energy,id);
 	}
 
 	@ScheduledMethod(start = 1, interval = 0.5)
@@ -28,7 +28,7 @@ public class ConsumerAgent extends Agent{
 		}
 		
 		if(getCurrentEnergy() <= POTENTIAL_CONSUMENT_BORDER) {
-			convertToPotential();
+			convertToPotential(getId());
 			return;
 		}
 	}

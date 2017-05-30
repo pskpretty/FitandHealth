@@ -24,13 +24,6 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
-				<parameter name="Consumer advertisement" displayName="Consumer advertisement" type="boolean" 
-						defaultValue="false" 
-						isReadOnly="false" 
-						converter="repast.simphony.parameter.StringConverterFactory$BooleanConverter"
-									values="false "
-						
-		/>
 				<parameter name="POTENTIAL_CONSUMENT_BORDER" displayName="Agent Energy border" type="double" 
 						defaultValue="25.0" 
 						isReadOnly="false" 
@@ -49,7 +42,7 @@
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
 									
 		/>
-				<parameter name="consumer_count" displayName="Zombie Count" type="int" 
+				<parameter name="consumer_count" displayName="Influencer Count" type="int" 
 						defaultValue="0" 
 						isReadOnly="false" 
 						converter="repast.simphony.parameter.StringConverterFactory$IntConverter"
@@ -61,6 +54,8 @@
 						converter="repast.simphony.parameter.StringConverterFactory$DoubleConverter"
 									
 		/>
+	
+<parameter name="consumer_advertisement"  displayName="Consumer Advertisement" type="boolean"  defaultValue="1" isReadOnly="false" />
 		</parameters>
 
 

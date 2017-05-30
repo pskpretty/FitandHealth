@@ -1,5 +1,5 @@
 <repast.simphony.data2.engine.DataSetDescriptor>
-  <name>Agent</name>
+  <name>Agent Count</name>
   <type>AGGREGATE</type>
   <inclTick>true</inclTick>
   <inclBatchRun>false</inclBatchRun>
@@ -11,16 +11,23 @@
     <pType>LAST</pType>
     <duration>-1.0</duration>
     <frequency>REPEAT</frequency>
-    <hashCode>2067393446</hashCode>
+    <hashCode>360707009</hashCode>
   </scheduleParams>
   <atEnd>false</atEnd>
   <methodDataSources class="linked-hash-map"/>
   <countSources class="linked-hash-map">
     <entry>
-      <string>Consumer count</string>
+      <string>consumer</string>
       <repast.simphony.data2.engine.CountSourceDefinition>
         <typeName>fitandHealth.ConsumerAgent</typeName>
-        <id>Consumer count</id>
+        <id>consumer</id>
+      </repast.simphony.data2.engine.CountSourceDefinition>
+    </entry>
+    <entry>
+      <string>Potential</string>
+      <repast.simphony.data2.engine.CountSourceDefinition>
+        <typeName>fitandHealth.PotentialAgent</typeName>
+        <id>Potential</id>
       </repast.simphony.data2.engine.CountSourceDefinition>
     </entry>
   </countSources>
